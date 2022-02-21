@@ -25,7 +25,7 @@ You can install it using any plugin manager.
 
 With Vim-plug, the installation configuration looks like this :
 
-`Plug 'Lap1n/coc-projector', {'do': 'yarn install --frozen-lockfile && yarn build'}`
+`Plug 'bigshans/coc-projector', {'do': 'yarn install --frozen-lockfile && yarn build'}`
 
 And then execute `:PlugInstall`
 
@@ -58,7 +58,6 @@ Open a file of the project and run
 - Add npm package to enable installing the plugin using the CocInstall command
 - Feature : Remove a project from the CocList view
 - Improve documentation
-- Remove dependencies with coc.nvim (make the plugin standalone)?
 
 ## License
 
