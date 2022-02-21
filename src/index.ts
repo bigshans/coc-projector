@@ -16,7 +16,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
   let projectManager = new ProjectManager(cacheFolder);
   let sessionManager = new SessionManager();
 
-  listManager.registerList(new ProjectList(workspace.nvim, projectManager, sessionManager));
+  context.subscriptions.push(
+    listManager.registerList(new ProjectList(projectManager, sessionManager))
+  );
 
   context.subscriptions.push(
     commands.registerCommand('addProject', async () => {
@@ -36,27 +38,27 @@ export async function activate(context: ExtensionContext): Promise<void> {
       projectManager.openDatabaseFile();
     })
   );
-  context.subscriptions.push(
-    commands.registerCommand('saveSession', async () => {
-      let cwd = String(await workspace.nvim.eval('getcwd()'));
-      sessionManager.saveSession(cwd);
-    })
-  );
+  // context.subscriptions.push(
+    // commands.registerCommand('saveSession', async () => {
+      // let cwd = String(await workspace.nvim.eval('getcwd()'));
+      // sessionManager.saveSession(cwd);
+    // })
+  // );
 
-  context.subscriptions.push(
-    workspace.registerAutocmd({
-      event: ['BufWritePost'],
-      request: false,
-      callback: sessionManager.saveCurrentSession,
-    })
-  );
-  context.subscriptions.push(
-    workspace.registerAutocmd({
-      event: ['QuitPre'],
-      request: false,
-      callback: sessionManager.onQuit,
-    })
-  );
+  // context.subscriptions.push(
+    // workspace.registerAutocmd({
+      // event: ['BufWritePost'],
+      // request: false,
+      // callback: sessionManager.saveCurrentSession,
+    // })
+  // );
+  // context.subscriptions.push(
+    // workspace.registerAutocmd({
+      // event: ['QuitPre'],
+      // request: false,
+      // callback: sessionManager.onQuit,
+    // })
+  // );
 
   // TODO: support automatic session loading
   // context.subscriptions.push(

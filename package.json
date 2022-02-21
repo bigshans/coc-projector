@@ -56,8 +56,16 @@
     },
     "commands": [
       {
-        "command": "projector.Command",
-        "title": "projector command title"
+        "command": "addProject",
+        "title": "add project to project list"
+      },
+      {
+        "command": "removeProject",
+        "title": "remove project to project list"
+      },
+      {
+        "command": "openProjectDatabase",
+        "title": "open project database"
       }
     ]
   },
