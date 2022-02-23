@@ -14,10 +14,6 @@ The main inspiration of this project came from the excellent project manager plu
 - Add and remove project
 - Automatically detects root folder when adding a new project
 
-#### Automatic session management:
-
-- Automatically save the session when saving and quitting
-- Automatically load previous session of a project
 
 ## Install
 
