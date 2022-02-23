@@ -25,7 +25,12 @@ You can install it using any plugin manager.
 
 With Vim-plug, the installation configuration looks like this :
 
-`Plug 'bigshans/coc-projector', {'do': 'yarn install --frozen-lockfile && yarn build'}`
+```viml
+" Now fuzzy search depends on fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'bigshans/coc-projector', {'do': 'yarn install --frozen-lockfile && yarn build'}
+```
 
 And then execute `:PlugInstall`
 
